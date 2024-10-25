@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>MLS Quest Employee Seeding Randomizer</title>
+    <title>Randomizer Page</title>
     <meta charset="UTF-8">
     <style>
         body {
             font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 50px;
+        }
+        /* Container styling */
+        .container {
+            width: 75%;         /* Set the width to 75% of the window */
+            margin: 0 auto;     /* Center the container horizontally */
+            text-align: center; /* Center text inside the container */
+            margin-top: 50px;   /* Optional: Add some top margin */
         }
         h1 {
             color: #333;
@@ -21,15 +26,17 @@
     </style>
 </head>
 <body>
-    <h1>MLS Marketplace Seeding Randomizer</h1>
-    <p id="randomLink"></p>
-    <p id="corePlayer"></p>
-    <p id="otherPlayers"></p>
+    <div class="container">
+        <h1>Randomizer</h1>
+        <p id="randomLink"></p>
+        <p id="corePlayer"></p>
+        <p id="otherPlayers"></p>
+    </div>
 
     <script>
         // Define your list of links
         var links = [
-            'https://mlsquest.com/redeem/MPQANzNybY-BlTbVaOAWvKL3y-spDI_s',
+        'https://mlsquest.com/redeem/MPQANzNybY-BlTbVaOAWvKL3y-spDI_s',
             'https://mlsquest.com/redeem/MAUJHbnXJWqDQ15-_n-oumrl8fLnzdwx',
             'https://mlsquest.com/redeem/MKl_rQvKQSpOWg7NZ-ZDSfXKoUfa8O5k',
             'https://mlsquest.com/redeem/Mi807YoCRLTLVFVx25Xe3dLWU75DwWZe'
@@ -37,7 +44,7 @@
 
         // Define your first list of players (corePlayers)
         var corePlayers = [
-            'Saba Lobjanidze',
+           'Saba Lobjanidze',
 'Jamal Thiaré',
 'Jáder Obrian',
 'Guilherme Biro',
@@ -127,7 +134,7 @@
 
         // Define your second list of players (otherPlayers)
         var otherPlayers = [
-          'Saba Lobjanidze',
+            'Saba Lobjanidze',
 'Jamal Thiaré',
 'Jáder Obrian',
 'Guilherme Biro',
@@ -241,9 +248,9 @@
         document.getElementById('randomLink').innerHTML = 'Your random link: <a href="' + randomLink + '">' + randomLink + '</a>';
 
         // Display the messages
-        document.getElementById('corePlayer').innerHTML = 'If you have only "Core" highlights, list ONE as a trade for the following player: <strong>' + randomCorePlayer + '</strong> and list the other for sale for $2.00';
+        document.getElementById('corePlayer').innerHTML = 'If you have only "Core" highlights, list one as a trade for the following player: <strong>' + randomCorePlayer + '</strong>';
 
-        document.getElementById('otherPlayers').innerHTML = 'If you have received a Limited, Rare or Epic highlight, list it for trade for the following two players: <strong>' + randomOtherPlayers.join(' and ') + '</strong> and list any Core highlights for sale for $2.00';
+        document.getElementById('otherPlayers').innerHTML = 'If you have received a Limited, Rare or Epic highlight, list it for trade for the following two players: <strong>' + randomOtherPlayers.join(' and ') + '</strong>';
     </script>
 </body>
 </html>
