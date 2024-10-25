@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Randomizer Page</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            font-size: 1.2em;
+        }
+        a {
+            color: #0066cc;
+        }
+    </style>
+</head>
+<body>
+    <h1>Randomizer</h1>
+    <p id="randomLink"></p>
+    <p id="corePlayer"></p>
+    <p id="otherPlayers"></p>
+
+    <script>
+        // Define your list of links
+        var links = [
+            'https://www.fifa.com',
+            'https://www.uefa.com',
+            'https://www.premierleague.com',
+            'https://www.laliga.com'
+        ];
+
+        // Define your first list of players (corePlayers)
+        var corePlayers = [
+            'Lionel Messi',
+            'Cristiano Ronaldo',
+            'Neymar Jr.',
+            'Kylian Mbappé'
+        ];
+
+        // Define your second list of players (otherPlayers)
+        var otherPlayers = [
+            'Kevin De Bruyne',
+            'Robert Lewandowski',
+            'Virgil van Dijk',
+            'Sadio Mané',
+            'Mohamed Salah',
+            'Erling Haaland'
+        ];
+
+        // Function to get a random item from an array
+        function getRandomItem(arr) {
+            return arr[Math.floor(Math.random() * arr.length)];
+        }
+
+        // Function to get two unique random items from an array
+        function getTwoRandomItems(arr) {
+            var arrCopy = arr.slice(); // Copy the array to avoid modifying the original
+            var firstItem = arrCopy.splice(Math.floor(Math.random() * arrCopy.length), 1)[0];
+            var secondItem = arrCopy.splice(Math.floor(Math.random() * arrCopy.length), 1)[0];
+            return [firstItem, secondItem];
+        }
+
+        // Randomly select one link
+        var randomLink = getRandomItem(links);
+
+        // Randomly select one player from corePlayers
+        var randomCorePlayer = getRandomItem(corePlayers);
+
+        // Randomly select two players from otherPlayers
+        var randomOtherPlayers = getTwoRandomItems(otherPlayers);
+
+        // Display the random link
+        document.getElementById('randomLink').innerHTML = 'Your random link: <a href="' + randomLink + '">' + randomLink + '</a>';
+
+        // Display the messages
+        document.getElementById('corePlayer').innerHTML = 'If you have only "Core" highlights, list one as a trade for the following player: <strong>' + randomCorePlayer + '</strong>';
+
+        document.getElementById('otherPlayers').innerHTML = 'If you have received a Limited, Rare or Epic highlight, list it for trade for the following two players: <strong>' + randomOtherPlayers.join(' and ') + '</strong>';
+    </script>
+</body>
+</html>
